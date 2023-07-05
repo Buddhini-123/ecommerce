@@ -18,5 +18,7 @@ class CartController extends Controller
         $product_id = $request->product_id;
         $qty = 1;
         $product = Product::find($product_id)->first();
+
+        return response()->json(['product' => $product], 200);
     }
 }

@@ -6,10 +6,23 @@
 <script>
 export default {
     name: "AddToCartButton",
-
+    props: {
+        product: {
+            required: true,
+            type: Object
+        }
+    },
     methods: {
-        addToCart() {
-            console.log('someMethod called');
+        // addToCart() {
+        //     console.log('someMethod called');
+        // }
+        async addToCart() {
+            alert(this.product.id)
+            return
+            let response = await axios.post('/cart', {
+                'product_id': this.product.id
+            });
+            console.log(response.data);
         }
     }
 }
