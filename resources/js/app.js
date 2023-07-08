@@ -7,6 +7,16 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+// require('./bootstrap');
+//
+// import { createApp } from 'vue';
+// import HelloVue from './components/HelloVue.vue';
+//
+// createApp({
+//     components: {
+//         HelloVue,
+//     }
+// }).mount('#app');
 
 /**
  * The following block of code may be used to automatically register your
@@ -20,7 +30,7 @@ window.Vue = require('vue').default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-Vue.component('add-to-cart-button', require('./components/AddToCartButton.vue').default);
+Vue.component('add-to-cart', require('./components/AddToCartButton.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -1,6 +1,8 @@
 <template>
     <a href="#" @click.prevent="addToCart"><i class="icon-shopping-cart2"></i> Add to Cart</a>
-<!--    <button @click="addToCart" type="button"><i class="icon-shopping-cart2"></i> Add to Cart</button>-->
+<!--    <a href="" @click.prevent="addToCart">Click to increment</a>-->
+
+    <!--    <button @click="addToCart" type="button"><i class="icon-shopping-cart2"></i> Add to Cart</button>-->
 </template>
 
 <script>
@@ -11,6 +13,9 @@ export default {
             required: true,
             type: Object
         }
+    },
+    data:{
+        count:1
     },
     methods: {
         // addToCart() {
