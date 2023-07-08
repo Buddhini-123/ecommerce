@@ -22,8 +22,8 @@ export default {
         //     console.log('someMethod called');
         // }
         async addToCart() {
-            alert(this.product.id)
-            return
+            // alert(this.product.id)
+            // return
             let response = await axios.post('/cart', {
                 'product_id': this.product.id
             });

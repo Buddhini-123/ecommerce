@@ -344,7 +344,7 @@
                         <h4>{{ $product->name }}</h4>
                         {!! $product->description !!}
                         <h3>$ {{ $product->sale_price }} <del><sup>$ {{ $product->price }}</sup></del></h3>
-                            <add-to-cart :product="{{ $product }}"/>
+                            <add-to-cart-button :product="{{ $product }}"/>
                     </div>
                 </div>
             </div>

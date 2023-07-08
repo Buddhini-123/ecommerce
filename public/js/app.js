@@ -5101,12 +5101,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
-              alert(_this.product.id);
-              return _context.abrupt("return");
-            case 4:
+              _context.next = 2;
+              return axios.post('/cart', {
+                'product_id': _this.product.id
+              });
+            case 2:
               response = _context.sent;
               console.log(response.data);
-            case 6:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -5225,16 +5227,6 @@ render._withStripped = true;
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
-// require('./bootstrap');
-//
-// import { createApp } from 'vue';
-// import HelloVue from './components/HelloVue.vue';
-//
-// createApp({
-//     components: {
-//         HelloVue,
-//     }
-// }).mount('#app');
 
 /**
  * The following block of code may be used to automatically register your
@@ -5248,7 +5240,7 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', (__webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]));
-Vue.component('add-to-cart', (__webpack_require__(/*! ./components/AddToCartButton.vue */ "./resources/js/components/AddToCartButton.vue")["default"]));
+Vue.component('add-to-cart-button', (__webpack_require__(/*! ./components/AddToCartButton.vue */ "./resources/js/components/AddToCartButton.vue")["default"]));
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
