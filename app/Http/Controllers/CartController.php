@@ -13,6 +13,11 @@ class CartController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        return view('??');
+    }
+
     public function store(Request $request)
     {
         $current_user = auth()->user();
@@ -37,7 +42,7 @@ class CartController extends Controller
                 $cart->save();
         }
 
-        $cart_count = Cart::where('product_id',$product_id)->where('user_id', $user_id)->count();
+        $cart_count = Cart::where('user_id', $user_id)->sum('qty');
         return response()->json(['cart_count' => $cart_count], 200);
     }
 }

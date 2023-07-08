@@ -1,8 +1,5 @@
 <template>
     <a href="#" @click.prevent="addToCart"><i class="icon-shopping-cart2"></i> Add to Cart</a>
-<!--    <a href="" @click.prevent="addToCart">Click to increment</a>-->
-
-    <!--    <button @click="addToCart" type="button"><i class="icon-shopping-cart2"></i> Add to Cart</button>-->
 </template>
 
 <script>
@@ -27,7 +24,8 @@ export default {
             let response = await axios.post('/cart', {
                 'product_id': this.product.id
             });
-            console.log(response.data);
+            this.$root.$emit('changeCartCount',response.data.basket_count);
+            // console.log(response.data);
         }
     }
 }

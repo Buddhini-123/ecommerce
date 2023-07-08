@@ -79,23 +79,26 @@
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="#" data-scroll-nav="0">Home</a>
+                            <a class="nav-link active" href="/" data-scroll-nav="0">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-scroll-nav="1">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" data-scroll-nav="2">About</a>
+                            <a class="nav-link" href="/cart" data-scroll-nav="1">Cart
+                                <div id="second-app"><badge-icon></badge-icon></div>
+                                </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-scroll-nav="3">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-scroll-nav="4">Faq</a>
+                            @if(Auth::guest())
+                            <a class="nav-link" href="{{route('login')}}" data-scroll-nav="4">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-scroll-nav="5">Testimonial</a>
+                            <a class="nav-link" href="{{route('register')}}" data-scroll-nav="5">Register</a>
                         </li>
+                        @else
+                            <a class="nav-link" href="{{route('logout')}}" data-scroll-nav="5">Logout</a>
+                        @endif
                         <li class="nav-item">
                             <a class="nav-link" href="#" data-scroll-nav="6">Contact</a>
                         </li>
@@ -344,7 +347,7 @@
                         <h4>{{ $product->name }}</h4>
                         {!! $product->description !!}
                         <h3>$ {{ $product->sale_price }} <del><sup>$ {{ $product->price }}</sup></del></h3>
-                            <add-to-cart-button :product="{{ $product }}"/>
+                        <add-to-cart-button :product="{{ $product }}"></add-to-cart-button>
                     </div>
                 </div>
             </div>

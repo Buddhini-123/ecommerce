@@ -21,6 +21,7 @@ window.Vue = require('vue').default;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('add-to-cart-button', require('./components/AddToCartButton.vue').default);
+Vue.component('badge-icon', require('./components/BadgeIcon.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,4 +31,8 @@ Vue.component('add-to-cart-button', require('./components/AddToCartButton.vue').
 
 const app = new Vue({
     el: '#app',
+});
+
+const secondapp = new Vue({
+    el: '#second-app',
 });

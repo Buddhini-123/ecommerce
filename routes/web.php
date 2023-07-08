@@ -26,5 +26,6 @@ Auth::routes();
 Route::get('/', [HomeController::class, 'index']);
 
 Route::group(['middleware', 'web'], function (){
+    Route::get('/cart', [CartController::class, 'index']);
     Route::post('/cart', [CartController::class, 'store']);
 });
