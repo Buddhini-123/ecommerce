@@ -15,13 +15,11 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-<!--                                <tr v-for="cart in carts" :key="cart.id">-->
-                                    <tr v-for="(cart,key) in carts" :key="key">
-<!--                                <tr v-for="(cart, index) in cartList" :key="index">-->
+                                <tr v-for="(cart, index) in cartList" :key="index">
                                     <td>
                                         <figure class="itemside align-items-center">
                                             <div class="aside"><img :src="'/images/'+cart.product.image_name" class="img-sm"></div>
-                                            <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">{{ cart.product_id }}</a>
+                                            <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">{{ cart.product.name }}</a>
                                                 <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
                                             </figcaption>
                                         </figure>
@@ -78,47 +76,15 @@
 </template>
 
 <script>
-// export default {
-//     name: "Cart",
-//     props: {
-//         cartList: {
-//             required: true,
-//             type: Object
-//         }
-//     }
-// };
-
 export default {
-    data() {
-        return {
-            carts: []
+    name: "Cart",
+    props: {
+        cartList: {
+            required: true,
+            type: Object
         }
     },
-    // created() {
-    //     this.axios
-    //         .get('/cart')
-    //         .then(response => {
-    //             this.carts = response.data;
-    //         });
-    // },
-    mounted(){
-        this.getCarts()
-    },
-    methods:{
-        async getCarts(){
-            await this.axios.get('/cart').then(response=>{
-                console.log(response.data);
-                this.carts = response.data
-            }).catch(error=>{
-                console.log(error)
-                this.carts = []
-            })
-        },
-
-    }
-
-
-}
+};
 
 </script>
 
