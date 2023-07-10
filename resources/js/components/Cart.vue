@@ -20,7 +20,7 @@
                                         <figure class="itemside align-items-center">
                                             <div class="aside"><img :src="'/images/'+cart.product.image_name" class="img-sm" style="height: 100px"></div>
                                             <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">{{ cart.product.name }}</a>
-                                                <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
+<!--                                                <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>-->
                                             </figcaption>
                                         </figure>
                                     </td>
@@ -52,16 +52,16 @@
                     <div class="card">
                         <div class="card-body">
                             <dl class="dlist-align">
-                                <dt>Total price:</dt>
-                                <dd class="text-right ml-3">$69.97</dd>
+                                <dt>Sub Total:</dt>
+                                <dd class="text-right ml-3">{{ subtotal | formatPrice }}</dd>
                             </dl>
                             <dl class="dlist-align">
-                                <dt>Discount:</dt>
-                                <dd class="text-right text-danger ml-3">- $10.00</dd>
+                                <dt>Estimated Shipping:</dt>
+                                <dd class="text-right text-danger ml-3"> $2.95</dd>
                             </dl>
                             <dl class="dlist-align">
                                 <dt>Total:</dt>
-                                <dd class="text-right text-dark b ml-3"><strong>$59.97</strong></dd>
+                                <dd class="text-right text-dark b ml-3"><strong>{{ total | formatPrice }}</strong></dd>
                             </dl>
                             <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"> Make Purchase </a> <a href="#" class="btn btn-out btn-success btn-square btn-main mt-2" data-abc="true">Continue Shopping</a>
                         </div>
@@ -75,12 +75,29 @@
 <script>
 export default {
     name: "Cart",
+    data() {
+        return {
+            subtotal: ''
+        }
+    },
     props: {
         cartList: {
             required: true,
             type: Object
         }
     },
+    mounted () {
+        let sum = 0
+        for(let i = 0; i < this.cartList.length; i++) {
+            sum += this.cartList[i].price * this.cartList[i].qty;
+        }
+        this.subtotal = sum
+    },
+    computed: {
+        total() {
+            return this.subtotal + 2.95
+        }
+    }
 };
 
 </script>

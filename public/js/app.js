@@ -5166,10 +5166,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Cart",
+  data: function data() {
+    return {
+      subtotal: ''
+    };
+  },
   props: {
     cartList: {
       required: true,
       type: Object
+    }
+  },
+  mounted: function mounted() {
+    var sum = 0;
+    for (var i = 0; i < this.cartList.length; i++) {
+      sum += this.cartList[i].price * this.cartList[i].qty;
+    }
+    this.subtotal = sum;
+  },
+  computed: {
+    total: function total() {
+      return this.subtotal + 2.95;
     }
   }
 });
@@ -5309,7 +5326,7 @@ var render = function render() {
         href: "#",
         "data-abc": "true"
       }
-    }, [_vm._v(_vm._s(cart.product.name))]), _vm._v(" "), _vm._m(1, true)])])]), _vm._v(" "), _c("td", [_c("input", {
+    }, [_vm._v(_vm._s(cart.product.name))])])])]), _vm._v(" "), _c("td", [_c("input", {
       staticClass: "form-control",
       attrs: {
         type: "text"
@@ -5323,8 +5340,34 @@ var render = function render() {
       staticClass: "price"
     }, [_vm._v(_vm._s(_vm._f("formatPrice")(cart.price * cart.qty)))]), _vm._v(" "), _c("small", {
       staticClass: "text-muted"
-    }, [_vm._v(" " + _vm._s(_vm._f("formatPrice")(cart.price)) + " each ")])])]), _vm._v(" "), _vm._m(2, true)]);
-  }), 0)])])])]), _vm._v(" "), _vm._m(3)])])]);
+    }, [_vm._v(" " + _vm._s(_vm._f("formatPrice")(cart.price)) + " each ")])])]), _vm._v(" "), _vm._m(1, true)]);
+  }), 0)])])])]), _vm._v(" "), _c("aside", {
+    staticClass: "col-lg-3"
+  }, [_vm._m(2), _vm._v(" "), _c("div", {
+    staticClass: "card"
+  }, [_c("div", {
+    staticClass: "card-body"
+  }, [_c("dl", {
+    staticClass: "dlist-align"
+  }, [_c("dt", [_vm._v("Sub Total:")]), _vm._v(" "), _c("dd", {
+    staticClass: "text-right ml-3"
+  }, [_vm._v(_vm._s(_vm._f("formatPrice")(_vm.subtotal)))])]), _vm._v(" "), _vm._m(3), _vm._v(" "), _c("dl", {
+    staticClass: "dlist-align"
+  }, [_c("dt", [_vm._v("Total:")]), _vm._v(" "), _c("dd", {
+    staticClass: "text-right text-dark b ml-3"
+  }, [_c("strong", [_vm._v(_vm._s(_vm._f("formatPrice")(_vm.total)))])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("a", {
+    staticClass: "btn btn-out btn-primary btn-square btn-main",
+    attrs: {
+      href: "#",
+      "data-abc": "true"
+    }
+  }, [_vm._v(" Make Purchase ")]), _vm._v(" "), _c("a", {
+    staticClass: "btn btn-out btn-success btn-square btn-main mt-2",
+    attrs: {
+      href: "#",
+      "data-abc": "true"
+    }
+  }, [_vm._v("Continue Shopping")])])])])])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5357,12 +5400,6 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("p", {
-    staticClass: "text-muted small"
-  }, [_vm._v("SIZE: L "), _c("br"), _vm._v(" Brand: MAXTRA")]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
   return _c("td", {
     staticClass: "text-right d-none d-md-block"
   }, [_c("a", {
@@ -5381,9 +5418,7 @@ var staticRenderFns = [function () {
 }, function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("aside", {
-    staticClass: "col-lg-3"
-  }, [_c("div", {
+  return _c("div", {
     staticClass: "card mb-3"
   }, [_c("div", {
     staticClass: "card-body"
@@ -5402,35 +5437,15 @@ var staticRenderFns = [function () {
     staticClass: "input-group-append"
   }, [_c("button", {
     staticClass: "btn btn-primary btn-apply coupon"
-  }, [_vm._v("Apply")])])])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "card"
-  }, [_c("div", {
-    staticClass: "card-body"
-  }, [_c("dl", {
+  }, [_vm._v("Apply")])])])])])])]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("dl", {
     staticClass: "dlist-align"
-  }, [_c("dt", [_vm._v("Total price:")]), _vm._v(" "), _c("dd", {
-    staticClass: "text-right ml-3"
-  }, [_vm._v("$69.97")])]), _vm._v(" "), _c("dl", {
-    staticClass: "dlist-align"
-  }, [_c("dt", [_vm._v("Discount:")]), _vm._v(" "), _c("dd", {
+  }, [_c("dt", [_vm._v("Estimated Shipping:")]), _vm._v(" "), _c("dd", {
     staticClass: "text-right text-danger ml-3"
-  }, [_vm._v("- $10.00")])]), _vm._v(" "), _c("dl", {
-    staticClass: "dlist-align"
-  }, [_c("dt", [_vm._v("Total:")]), _vm._v(" "), _c("dd", {
-    staticClass: "text-right text-dark b ml-3"
-  }, [_c("strong", [_vm._v("$59.97")])])]), _vm._v(" "), _c("hr"), _vm._v(" "), _c("a", {
-    staticClass: "btn btn-out btn-primary btn-square btn-main",
-    attrs: {
-      href: "#",
-      "data-abc": "true"
-    }
-  }, [_vm._v(" Make Purchase ")]), _vm._v(" "), _c("a", {
-    staticClass: "btn btn-out btn-success btn-square btn-main mt-2",
-    attrs: {
-      href: "#",
-      "data-abc": "true"
-    }
-  }, [_vm._v("Continue Shopping")])])])]);
+  }, [_vm._v(" $2.95")])]);
 }];
 render._withStripped = true;
 
