@@ -28,7 +28,7 @@
                                         <input type="text" class="form-control" :value="cart.qty">
                                     </td>
                                     <td>
-                                        <div class="price-wrap"> <var class="price">${{ cart.price * cart.qty }}</var> <small class="text-muted"> ${{ cart.price }} each </small> </div>
+                                        <div class="price-wrap"> <var class="price">{{ cart.price * cart.qty | formatPrice }}</var> <small class="text-muted"> {{ cart.price | formatPrice }} each </small> </div>
                                     </td>
                                     <td class="text-right d-none d-md-block">
                                         <a href="" class="btn btn-light" data-abc="true" style="color: #ffffff;background-color: #F44336;border-color: #f8f9fa;font-size: 12px"> Remove</a>

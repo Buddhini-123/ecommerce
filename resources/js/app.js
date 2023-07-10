@@ -30,6 +30,11 @@ Vue.component('cart', require('./components/Cart.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+//TODO moved to other file
+    Vue.filter('formatPrice', function (value){
+        return '$' + parseFloat(value).toFixed(2)
+    });
+
 const app = new Vue({
     el: '#app',
 });

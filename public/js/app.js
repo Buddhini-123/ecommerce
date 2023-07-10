@@ -5321,9 +5321,9 @@ var render = function render() {
       staticClass: "price-wrap"
     }, [_c("var", {
       staticClass: "price"
-    }, [_vm._v("$" + _vm._s(cart.price * cart.qty))]), _vm._v(" "), _c("small", {
+    }, [_vm._v(_vm._s(_vm._f("formatPrice")(cart.price * cart.qty)))]), _vm._v(" "), _c("small", {
       staticClass: "text-muted"
-    }, [_vm._v(" $" + _vm._s(cart.price) + " each ")])])]), _vm._v(" "), _vm._m(2, true)]);
+    }, [_vm._v(" " + _vm._s(_vm._f("formatPrice")(cart.price)) + " each ")])])]), _vm._v(" "), _vm._m(2, true)]);
   }), 0)])])])]), _vm._v(" "), _vm._m(3)])])]);
 };
 var staticRenderFns = [function () {
@@ -5513,6 +5513,10 @@ Vue.component('cart', (__webpack_require__(/*! ./components/Cart.vue */ "./resou
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+//TODO moved to other file
+Vue.filter('formatPrice', function (value) {
+  return '$' + parseFloat(value).toFixed(2);
+});
 var app = new Vue({
   el: '#app'
 });
