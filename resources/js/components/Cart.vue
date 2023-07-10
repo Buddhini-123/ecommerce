@@ -18,20 +18,17 @@
                                 <tr v-for="(cart, index) in cartList" :key="index">
                                     <td>
                                         <figure class="itemside align-items-center">
-                                            <div class="aside"><img :src="'/images/'+cart.product.image_name" class="img-sm"></div>
+                                            <div class="aside"><img :src="'/images/'+cart.product.image_name" class="img-sm" style="height: 100px"></div>
                                             <figcaption class="info"> <a href="#" class="title text-dark" data-abc="true">{{ cart.product.name }}</a>
                                                 <p class="text-muted small">SIZE: L <br> Brand: MAXTRA</p>
                                             </figcaption>
                                         </figure>
                                     </td>
-                                    <td> <select class="form-control">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                    </select> </td>
                                     <td>
-                                        <div class="price-wrap"> <var class="price">$10.00</var> <small class="text-muted"> $9.20 each </small> </div>
+                                        <input type="text" class="form-control" :value="cart.qty">
+                                    </td>
+                                    <td>
+                                        <div class="price-wrap"> <var class="price">${{ cart.price * cart.qty }}</var> <small class="text-muted"> ${{ cart.price }} each </small> </div>
                                     </td>
                                     <td class="text-right d-none d-md-block">
                                         <a href="" class="btn btn-light" data-abc="true" style="color: #ffffff;background-color: #F44336;border-color: #f8f9fa;font-size: 12px"> Remove</a>

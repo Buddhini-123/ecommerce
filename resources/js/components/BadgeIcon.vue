@@ -32,7 +32,7 @@ export default {
     name: "BadgeIcon",
     data() {
         return {
-            cartCount: 0, // Initialize cartCount to 0 or any default value
+            cartCount: '', // Initialize cartCount to 0 or any default value
         };
     },
     mounted() {

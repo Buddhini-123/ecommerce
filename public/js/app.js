@@ -5136,7 +5136,7 @@ __webpack_require__.r(__webpack_exports__);
   name: "BadgeIcon",
   data: function data() {
     return {
-      cartCount: 0 // Initialize cartCount to 0 or any default value
+      cartCount: '' // Initialize cartCount to 0 or any default value
     };
   },
   mounted: function mounted() {
@@ -5295,6 +5295,9 @@ var render = function render() {
       staticClass: "aside"
     }, [_c("img", {
       staticClass: "img-sm",
+      staticStyle: {
+        height: "100px"
+      },
       attrs: {
         src: "/images/" + cart.product.image_name
       }
@@ -5306,8 +5309,22 @@ var render = function render() {
         href: "#",
         "data-abc": "true"
       }
-    }, [_vm._v(_vm._s(cart.product.name))]), _vm._v(" "), _vm._m(1, true)])])]), _vm._v(" "), _vm._m(2, true), _vm._v(" "), _vm._m(3, true), _vm._v(" "), _vm._m(4, true)]);
-  }), 0)])])])]), _vm._v(" "), _vm._m(5)])])]);
+    }, [_vm._v(_vm._s(cart.product.name))]), _vm._v(" "), _vm._m(1, true)])])]), _vm._v(" "), _c("td", [_c("input", {
+      staticClass: "form-control",
+      attrs: {
+        type: "text"
+      },
+      domProps: {
+        value: cart.qty
+      }
+    })]), _vm._v(" "), _c("td", [_c("div", {
+      staticClass: "price-wrap"
+    }, [_c("var", {
+      staticClass: "price"
+    }, [_vm._v("$" + _vm._s(cart.price * cart.qty))]), _vm._v(" "), _c("small", {
+      staticClass: "text-muted"
+    }, [_vm._v(" $" + _vm._s(cart.price) + " each ")])])]), _vm._v(" "), _vm._m(2, true)]);
+  }), 0)])])])]), _vm._v(" "), _vm._m(3)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
@@ -5343,22 +5360,6 @@ var staticRenderFns = [function () {
   return _c("p", {
     staticClass: "text-muted small"
   }, [_vm._v("SIZE: L "), _c("br"), _vm._v(" Brand: MAXTRA")]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("td", [_c("select", {
-    staticClass: "form-control"
-  }, [_c("option", [_vm._v("1")]), _vm._v(" "), _c("option", [_vm._v("2")]), _vm._v(" "), _c("option", [_vm._v("3")]), _vm._v(" "), _c("option", [_vm._v("4")])])]);
-}, function () {
-  var _vm = this,
-    _c = _vm._self._c;
-  return _c("td", [_c("div", {
-    staticClass: "price-wrap"
-  }, [_c("var", {
-    staticClass: "price"
-  }, [_vm._v("$10.00")]), _vm._v(" "), _c("small", {
-    staticClass: "text-muted"
-  }, [_vm._v(" $9.20 each ")])])]);
 }, function () {
   var _vm = this,
     _c = _vm._self._c;

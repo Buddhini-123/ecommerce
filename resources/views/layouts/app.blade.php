@@ -57,7 +57,7 @@
                     <div class="collapse navbar-collapse" id="navbarContent">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" href="/" data-scroll-nav="0">Home</a>
+                                <a class="nav-link active" href="/" >Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/cart" >Cart
