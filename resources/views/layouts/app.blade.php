@@ -1,11 +1,13 @@
 <!doctype html>
-<html lang="zxx">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content>
-    <meta name="description" content>
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>Premat - Product Landing Page</title>
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
@@ -58,7 +60,7 @@
                                 <a class="nav-link active" href="/" data-scroll-nav="0">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/cart" data-scroll-nav="1">Cart
+                                <a class="nav-link" href="/cart" >Cart
                                     <div id="second-app"><badge-icon></badge-icon></div>
                                 </a>
                             </li>
@@ -85,6 +87,7 @@
         </div>
     </header>
     <!--end header-->
+    @yield('content')
 
     <!--start footer-->
     <footer id="footer" class="bg-gray">
