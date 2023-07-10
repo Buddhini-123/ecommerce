@@ -23,6 +23,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('add-to-cart-button', require('./components/AddToCartButton.vue').default);
 Vue.component('badge-icon', require('./components/BadgeIcon.vue').default);
 Vue.component('cart', require('./components/Cart.vue').default);
+Vue.component('checkout', require('./components/Checkout.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -45,4 +46,8 @@ const secondapp = new Vue({
 
 const cart = new Vue({
     el: '#cart',
+});
+
+const checkout = new Vue({
+    el: '#checkout',
 });

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::group(['middleware', 'web'], function (){
     Route::get('/cart', [CartController::class, 'index']);
-    Route::get('/carts', [CartController::class, 'show']);
     Route::post('/cart', [CartController::class, 'store']);
+
+    Route::get('/checkout', [CheckoutController::class, 'index']);
 });

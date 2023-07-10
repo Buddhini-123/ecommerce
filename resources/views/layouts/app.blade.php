@@ -28,6 +28,8 @@
     <!--responsive css-->
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
 
+    <script src="https://js.stripe.com/v3/"></script>
+
 </head>
 <body>
     <!--Start Preloader-->
