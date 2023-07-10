@@ -2,6 +2,6 @@
 
 @section('content')
     <div id="cart">
-        <cart :cart_list="{{ $carts }}"></cart>
+        <cart></cart>
     </div>
 @endsection
