@@ -71,13 +71,21 @@
                             </li>
                             <li class="nav-item">
                                 @if(Auth::guest())
-                                    <a class="nav-link" href="{{route('login')}}" data-scroll-nav="4">Login</a>
+                                    <a class="nav-link" href="{{route('login')}}">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('register')}}" data-scroll-nav="5">Register</a>
+                                <a class="nav-link" href="{{route('register')}}">Register</a>
                             </li>
                             @else
-                                <a class="nav-link" href="{{route('logout')}}" data-scroll-nav="5">Logout</a>
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             @endif
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-scroll-nav="6">Contact</a>
