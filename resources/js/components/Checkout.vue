@@ -125,11 +125,11 @@
 
                         </div>
                         <div class="row">
-                            <div class="col-md-6 mb-3">
-
+                            <div class="col-md-9 mb-3">
+                                <div ref="card" class="form-control" style="height: 2.4em; padding-top: .7em"></div>
                             </div>
-                            <div class="col-md-6 mb-3">
-
+                            <div class="col-md-3 mb-3">
+                                <button class="btn btn-success" @click.prevent="submitPaymentMethod">Save</button>
                             </div>
                         </div>
                         <hr class="mb-4">
@@ -142,8 +142,33 @@
 </template>
 
 <script>
+
+let stripe = Stripe('???')
+let elements = stripe.elements()
+
 export default {
     name: "Checkout",
+    data() {
+        return {
+            card: ''
+        }
+    },
+    mounted() {
+        this.card = elements.create('card')
+        this.card.mount(this.$refs.card)
+    },
+    methods: {
+        async loadIntent() {
+            let response = await axios.get('/user/setup-intent')
+            this.intentToken = response.data
+        },
+        async loadPaymentMethods() {
+            let response = await axios.get('/user/payment-methods')
+        },
+        submitPaymentMethod() {
+            alert('submitPaymentMethod')
+        }
+    }
 
 };
 

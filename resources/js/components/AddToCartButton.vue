@@ -25,6 +25,7 @@ export default {
                 'product_id': this.product.id
             });
             this.$root.$emit('changeCartCount',response.data.cart_count);
+            alert("Item added to the cart");
             // console.log(response.data.cart_count);
         }
     }
