@@ -24,8 +24,8 @@ export default {
             let response = await axios.post('/cart', {
                 'product_id': this.product.id
             });
-            this.$root.$emit('changeCartCount',response.data.basket_count);
-            // console.log(response.data);
+            this.$root.$emit('changeCartCount',response.data.cart_count);
+            // console.log(response.data.cart_count);
         }
     }
 }

@@ -5107,8 +5107,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
             case 2:
               response = _context.sent;
-              _this.$root.$emit('changeCartCount', response.data.basket_count);
-              // console.log(response.data);
+              _this.$root.$emit('changeCartCount', response.data.cart_count);
+              // console.log(response.data.cart_count);
             case 4:
             case "end":
               return _context.stop();
@@ -5136,12 +5136,16 @@ __webpack_require__.r(__webpack_exports__);
   name: "BadgeIcon",
   data: function data() {
     return {
-      cartCount: ''
+      cartCount: 0 // Initialize cartCount to 0 or any default value
     };
   },
   mounted: function mounted() {
     var _this = this;
     this.$root.$on('changeCartCount', function (newCartCount) {
+      // Verify if the event is triggered and the newCartCount value is received correctly
+      console.log('Received new cart count:', newCartCount);
+
+      // Update the cartCount value with the newCartCount received
       _this.cartCount = newCartCount;
     });
   }

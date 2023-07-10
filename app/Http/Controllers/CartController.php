@@ -15,7 +15,7 @@ class CartController extends Controller
 
     public function index()
     {
-        return view('??');
+        return view('cart');
     }
 
     public function store(Request $request)
